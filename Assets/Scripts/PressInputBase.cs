@@ -69,6 +69,7 @@ public  class PressInputBase : MonoBehaviour
             {
                 // Si la etiqueta del objeto tocado coincide con "YourTag", desaparece el objeto
                 hit.collider.gameObject.SetActive(false);
+                GameManager.instance.IncrementScore();
             }
         }
     }
