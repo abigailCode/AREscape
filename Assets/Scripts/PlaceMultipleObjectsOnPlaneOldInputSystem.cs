@@ -27,6 +27,8 @@ public class PlaceMultipleObjectsOnPlaneOldInputSystem : MonoBehaviour
     [SerializeField]
     [Tooltip("Instantiates this prefab on a plane at the touch location.")]
     GameObject placedPrefab;
+    public GameObject doneButton;
+    private int objectsCounter = 0;
 
     /// <summary>
     /// The instantiated object.
@@ -62,6 +64,8 @@ public class PlaceMultipleObjectsOnPlaneOldInputSystem : MonoBehaviour
                 // Instantiated the prefab.
                 spawnedObject = Instantiate(placedPrefab, hitPose.position, hitPose.rotation);
                 GameManager.instance.AddObject(hitPose);
+
+                if(++objectsCounter == 1) doneButton.SetActive(true);
             }
 
             // To make the spawned object always look at the camera. Delete if not needed.

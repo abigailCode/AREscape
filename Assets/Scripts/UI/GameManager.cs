@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     [SerializeField] List<Pose> placedObjects = new List<Pose>();
-    public TextMeshProUGUI text;
+    private TextMeshProUGUI text;
     public int score = 0;
     private GameObject counterObject = null;
 
@@ -40,6 +40,12 @@ public class GameManager : MonoBehaviour
     {
         placedObjects.Add(hit);
         Debug.Log("Objeto instanciado en x: " + hit.position.x + " y: " + hit.position.y + " z: " + hit.position.z);
+    }
+
+    public void ResetObjects()
+    {
+        placedObjects.Clear();
+        score = 0;
     }
 
     public List<Pose> GetObjects()

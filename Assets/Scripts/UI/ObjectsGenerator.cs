@@ -9,11 +9,14 @@ public class ObjectsGenerator : MonoBehaviour
     public TextMeshProUGUI contadorText;
 
 
+
     public int counter = 0;
 
     void Start()
     {
+       
         objects = GameManager.instance.GetObjects();
+        contadorText.text = $"{0}/{objects.Count}";
         DrawObjects();
     }
 
